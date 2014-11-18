@@ -1,0 +1,8 @@
+*.gem
+*.rbc
+/pkg/
+
+## Environment normalisation:
+/.bundle/
+/lib/bundler/man/
+
