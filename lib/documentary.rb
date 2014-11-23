@@ -1,3 +1,4 @@
 module Documentary
-  require 'documentary/file'
+  require 'ostruct'
+  require 'documentary/parser'
 end
