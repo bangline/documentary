@@ -41,11 +41,4 @@ module Documentary
         end
       end
   end
-
-  class Docblock < OpenStruct
-    def initialize(hsh)
-      super(hsh)
-      self.type = self.type.to_sym
-    end
-  end
 end

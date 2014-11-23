@@ -12,10 +12,10 @@ class Documentary::ParserTest < MiniTest::Test
     assert_equal 1, parser.docblocks.count
   end
 
-  test 'parsed docblocks will have correct methods' do
+  test 'parsed docblocks will be kept as docblocks' do
     file_with_title_block = fetch_fixture('title_block.txt')
     parser = Documentary::Parser.new(file_with_title_block)
-    assert_equal :title_block, parser.docblocks.first.type
+    assert_kind_of Documentary::Docblock, parser.docblocks.first
   end
 
 end
