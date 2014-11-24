@@ -8,7 +8,7 @@ module Documentary
       @line_number = 0
       begin
         parse_file
-      rescue => e
+      rescue Psych::SyntaxError
         raise Documentary::InvalidDocblock.new form_exception_message
       end
     end

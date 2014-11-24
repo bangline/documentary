@@ -30,4 +30,9 @@ class Documentary::ParserTest < MiniTest::Test
     end
   end
 
+  test 'all other exceptions bubble up' do
+    assert_raises Errno::ENOENT do
+      Documentary::Parser.new('not_there.txt')
+    end
+  end
 end
