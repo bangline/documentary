@@ -5,7 +5,12 @@ module Documentary
     def initialize(path)
       @path = path
       @docblocks = []
-      parse_file
+      @line_number = 0
+      begin
+        parse_file
+      rescue => e
+        raise Documentary::InvalidDocblock.new form_exception_message
+      end
     end
 
     attr_reader :docblocks
@@ -19,6 +24,7 @@ module Documentary
           in_docblock = false
           block_body = ""
           file_content.readlines.each do |line|
+            @line_number += 1
             if in_docblock && line.match(/---( |)end/)
               in_docblock = false
               yml = YAML.load(block_body)
@@ -27,6 +33,7 @@ module Documentary
             end
 
             if line.match(/---( |)documentary/)
+              @current_docblock_start = @line_number
               in_docblock = true
             end
 
@@ -39,6 +46,10 @@ module Documentary
             end
           end
         end
+      end
+
+      def form_exception_message
+        "Invalid docblock YAML in file #{path}:#{@current_docblock_start}"
       end
   end
 end
