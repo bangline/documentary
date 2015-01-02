@@ -11,14 +11,6 @@ class Documentary::IntegrationTest < MiniTest::Test
     File.unlink generated_docs_path
   end
 
-  def generated_docs_path
-    File.expand_path('../../api.md', __FILE__)
-  end
-
-  def generated_docs
-    File.read generated_docs_path
-  end
-
   test 'the title blocks are correctly generated' do
     assert_has_title_block_header 'Salutations'
   end
