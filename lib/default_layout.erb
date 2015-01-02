@@ -1,0 +1,7 @@
+# THE TOP TITLE
+
+<% docblocks.select { |block| block.type == :title_block }.each do |title_block| %>
+## <%= title_block.title %>
+
+<%= title_block.content %>
+<% end %>
