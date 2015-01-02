@@ -1,0 +1,5 @@
+# --- documentary
+# type: title_block
+# content: >
+#   Hello world
+# --- end

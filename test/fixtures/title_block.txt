@@ -1,5 +1,6 @@
 # --- documentary
 # type: title_block
+# title: Hashes
 # content: >
 #   This is the title block.
 # --- end
@@ -8,3 +9,10 @@ Some other text that should be here
 
 # this is not documentary
 # nor this. end of!
+
+// --- documentary
+// type: title_block
+// title: Slashes
+// content: >
+//   Dont care about comment chars
+// --- end

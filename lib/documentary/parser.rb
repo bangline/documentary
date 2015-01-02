@@ -23,6 +23,7 @@ module Documentary
         File.open(path, 'r') do |file_content|
           in_docblock = false
           block_body = ""
+          comment_delimeter = ""
           file_content.readlines.each do |line|
             @line_number += 1
             if in_docblock && line.match(/---( |)end/)
@@ -33,6 +34,7 @@ module Documentary
             end
 
             if line.match(/---( |)documentary/)
+              comment_delimeter = line.match(/(.+)---/)[1]
               @current_docblock_start = @line_number
               in_docblock = true
             end
@@ -41,7 +43,8 @@ module Documentary
               if  line.match(/---( |)documentary/)
                 block_body << "---\n"
               else
-                block_body << "#{line.strip.gsub(/^# /, '')}\n"
+                regex = /^#{comment_delimeter}/
+                block_body << "#{line.strip.gsub(regex, '')}\n"
               end
             end
           end

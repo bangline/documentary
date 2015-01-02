@@ -22,6 +22,10 @@ class Minitest::Test
     define_method(test_name(name), &block)
   end
 
+  def fetch_fixture(name)
+    File.expand_path("../fixtures/#{name}", __FILE__)
+  end
+
   private
 
     def self.test_name(name)
