@@ -6,6 +6,19 @@ A simple tool that will allow you to generate API runnable documentation quickly
 >
 > -- <cite>Kathy Sierra</cite>
 
+## Todos
+
+[X] Build the parser
+[X] Integration Test
+[X] Title Blocks
+[ ] Ordering
+[ ] Resource Blocks
+[ ] Endpoint Blocks
+[ ] Generation config
+[ ] CLI design
+[ ] TOC for documentation
+[ ] Create testing suite
+
 ## Specification
 
 Documentary works using good old fashioned docblocks. I believe documentation for APIs should live with the code they document. Creating a documentary docblock is as simple as
