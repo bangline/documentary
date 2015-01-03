@@ -14,4 +14,16 @@ class Minitest::Test
   def assert_content_for_title_block(title, content)
     assert_match /## #{title}\n\n#{content}/, generated_docs
   end
+
+  def assert_has_resource_title
+    assert_includes generated_docs, "## Resources"
+  end
+
+  def assert_has_third_level_heading(heading)
+    assert_includes generated_docs, "### #{heading}"
+  end
+
+  def assert_content_for_resource(resource, content)
+    assert_match /### #{resource}\n\n#{content}/, generated_docs
+  end
 end

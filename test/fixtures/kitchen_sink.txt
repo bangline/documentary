@@ -1,13 +1,17 @@
 # --- documentary
 # type: title_block
 # title: Salutations
-# content: >
-#   Hello world
+# content: Hello world
 # --- end
 
+// --- documentary
+// type: title_block
+// title: Salutations Again
+// content: Hello world Again
+// --- end
+
 # --- documentary
-# type: title_block
-# title: Salutations Again
-# content: >
-#   Hello world Again
+# type: resource
+# title: A Resource
+# description: This is a resource
 # --- end

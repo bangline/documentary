@@ -25,6 +25,7 @@ module Documentary
           block_body = ""
           comment_delimeter = ""
           file_content.readlines.each do |line|
+            line.rstrip!
             @line_number += 1
             if in_docblock && line.match(/---( |)end/)
               in_docblock = false
@@ -40,11 +41,13 @@ module Documentary
             end
 
             if in_docblock
-              if  line.match(/---( |)documentary/)
+              if line.match(/---( |)documentary/)
                 block_body << "---\n"
+              elsif line == comment_delimeter.rstrip
+                block_body << "\n"
               else
                 regex = /^#{comment_delimeter}/
-                block_body << "#{line.strip.gsub(regex, '')}\n"
+                block_body << "#{line.gsub(regex, '')}\n"
               end
             end
           end

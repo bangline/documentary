@@ -2,7 +2,7 @@
 # type: title_block
 # title: Hashes
 # content: >
-#   This is the title block.
+#   This is the title block. With added [markdown](http://daringfireball.net/projects/markdown/syntax)
 # --- end
 
 Some other text that should be here
@@ -10,9 +10,21 @@ Some other text that should be here
 # this is not documentary
 # nor this. end of!
 
-// --- documentary
-// type: title_block
-// title: Slashes
-// content: >
-//   Dont care about comment chars
-// --- end
+  We can have wierdly indented comments like the one below!
+
+  // --- documentary
+  // type: title_block
+  // title: Slashes
+  // content: >
+  //   Dont care about comment chars
+  // --- end
+
+# --- documentary
+# type: title_block
+# title: Multiple Lines
+# content: |
+#   This is the title block.
+#
+#   With multiple
+#   Significant lines
+# --- end

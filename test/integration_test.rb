@@ -15,7 +15,19 @@ class Documentary::IntegrationTest < MiniTest::Test
     assert_has_title_block_header 'Salutations'
   end
 
-  test 'the content of the title block is added correctly' do
-    assert_content_for_title_block 'Salutations', 'Hello world'
+  test 'the content of the title block is correctly generated' do
+    assert_content_for_title_block 'Salutations', "Hello world"
+  end
+
+  test 'resources are included' do
+    assert_has_resource_title
+  end
+
+  test 'named resources are correctly generated' do
+    assert_has_third_level_heading 'A Resource'
+  end
+
+  test 'named resources descriptions are correctly generated' do
+    assert_content_for_resource 'A Resource', 'This is a resource'
   end
 end

@@ -45,3 +45,22 @@ Title blocks are to provide important supplamentary information about the API. T
 #   Here is the example content, using the YAML escaping character '>'.
 # --- end
 ```
+
+### Resources
+
+Resource blocks let you describe the domain of your API. They are formed as follows:
+
+```
+# --- documentary
+# type: resource
+# title: The Resource Name
+# description: >
+#   A description of the resource would go in here
+# attributes:
+#   - string_attribute:
+#     required: true
+#     type: string
+# --- end
+```
+
+Attributes are formed using the attribute name as the key and specifing if they are required (validation present) and the type to be passed.

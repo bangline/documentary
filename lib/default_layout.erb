@@ -5,3 +5,11 @@
 
 <%= title_block.content %>
 <% end %>
+
+## Resources
+
+<% docblocks.resources.each do |resource| %>
+### <%= resource.title %>
+
+<%= resource.description %>
+<% end %>
