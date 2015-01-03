@@ -8,16 +8,16 @@ A simple tool that will allow you to generate API runnable documentation quickly
 
 ## Todos
 
-[X] Build the parser
-[X] Integration Test
-[X] Title Blocks
-[ ] Ordering
-[ ] Resource Blocks
-[ ] Endpoint Blocks
-[ ] Generation config
-[ ] CLI design
-[ ] TOC for documentation
-[ ] Create testing suite
+* [X] Build the parser
+* [X] Integration Test
+* [X] Title Blocks
+* [ ] Ordering
+* [ ] Resource Blocks
+* [ ] Endpoint Blocks
+* [ ] Generation config
+* [ ] CLI design
+* [ ] TOC for documentation
+* [ ] Create testing suite
 
 ## Specification
 
