@@ -26,4 +26,8 @@ class Minitest::Test
   def assert_content_for_resource(resource, content)
     assert_match /### #{resource}\n\n#{content}/, generated_docs
   end
+
+  def assert_table_entry_for_resource(resource, row_content)
+    assert_match /### #{resource}[.+]#{row_content[:name]} | #{row_content[:required]} | #{row_content[:type]}/, generated_docs
+  end
 end

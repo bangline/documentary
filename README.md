@@ -12,7 +12,7 @@ A simple tool that will allow you to generate API runnable documentation quickly
 * [X] Integration Test
 * [X] Title Blocks
 * [X] Ordering
-* [ ] Resource Blocks
+* [X] Resource Blocks
 * [ ] Endpoint Blocks
 * [ ] Generation config
 * [ ] CLI design

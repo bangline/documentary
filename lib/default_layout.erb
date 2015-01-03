@@ -12,4 +12,11 @@
 ### <%= resource.title %>
 
 <%= resource.description %>
+
+#### Attributes
+Name          | Type          | Required
+------------- | ------------- | -----------------
+<% resource.attributes.each do |attribute| %><%= attribute.keys.first %> | <%= attribute['type'] %> | <%= attribute['required'] %>
+<% end %>
+
 <% end %>

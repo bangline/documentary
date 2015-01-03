@@ -30,4 +30,8 @@ class Documentary::IntegrationTest < MiniTest::Test
   test 'named resources descriptions are correctly generated' do
     assert_content_for_resource 'A Resource', 'This is a resource'
   end
+
+  test 'named resource has table of attributes' do
+    assert_table_entry_for_resource 'A Resource', {name: 'email', required: 'true', type: 'string'}
+  end
 end

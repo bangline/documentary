@@ -14,4 +14,11 @@
 # type: resource
 # title: A Resource
 # description: This is a resource
+# attributes:
+#   - email:
+#     required: true
+#     type: string
+#   - another:
+#     required: no
+#     type: boolean
 # --- end
