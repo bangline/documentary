@@ -2,6 +2,7 @@ module Documentary
   require 'pry'
   require 'ostruct'
   require 'documentary/docblock'
+  require 'documentary/docblock_collection'
   require 'documentary/parser'
 
   class InvalidDocblock < StandardError; end
@@ -10,7 +11,7 @@ module Documentary
     require 'erb'
 
     def self.build(file_tree)
-      docblocks = []
+      docblocks = DocblockCollection.new
       file_tree.each do |path|
         parsed_file = Parser.new(path)
         docblocks.concat parsed_file.docblocks

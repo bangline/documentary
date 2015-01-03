@@ -11,7 +11,7 @@ A simple tool that will allow you to generate API runnable documentation quickly
 * [X] Build the parser
 * [X] Integration Test
 * [X] Title Blocks
-* [ ] Ordering
+* [X] Ordering
 * [ ] Resource Blocks
 * [ ] Endpoint Blocks
 * [ ] Generation config
