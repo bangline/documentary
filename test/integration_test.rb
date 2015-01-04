@@ -19,7 +19,7 @@ class Documentary::IntegrationTest < MiniTest::Test
     assert_content_for_title_block 'Salutations', "Hello world"
   end
 
-  test 'resources are included' do
+  test 'resources are generated' do
     assert_has_resource_title
   end
 
@@ -33,5 +33,13 @@ class Documentary::IntegrationTest < MiniTest::Test
 
   test 'named resource has table of attributes' do
     assert_table_entry_for_resource 'A Resource', {name: 'email', required: 'true', type: 'string'}
+  end
+
+  test 'endpoints are generated' do
+    assert_has_enpoints_title
+  end
+
+  test 'named enpoints are correctly generated' do
+
   end
 end

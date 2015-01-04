@@ -19,6 +19,10 @@ class Minitest::Test
     assert_includes generated_docs, "## Resources"
   end
 
+  def assert_has_enpoints_title
+    assert_includes generated_docs, "## Endpoints"
+  end
+
   def assert_has_third_level_heading(heading)
     assert_includes generated_docs, "### #{heading}"
   end
