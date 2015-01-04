@@ -18,7 +18,10 @@ Name          | Type          | Required
 ------------- | ------------- | -----------------
 <% resource.attributes.each do |attribute| %><%= attribute.keys.first %> | <%= attribute['type'] %> | <%= attribute['required'] %>
 <% end %>
-
 <% end %>
 
 ## Endpoints
+
+<% docblocks.endpoints.each do |endpoint| %>
+### <%= endpoint.title %>
+<% end %>

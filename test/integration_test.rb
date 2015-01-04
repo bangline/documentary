@@ -40,6 +40,6 @@ class Documentary::IntegrationTest < MiniTest::Test
   end
 
   test 'named enpoints are correctly generated' do
-
+    assert_includes generated_docs, '### List endpoint'
   end
 end

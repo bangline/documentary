@@ -22,3 +22,34 @@
 #     required: no
 #     type: boolean
 # --- end
+
+# --- documentary
+# type: endpoint
+# title: List endpoint
+# authenticated: true
+# verb: GET
+# endpoint: '/some/path'
+# params:
+#   - page:
+#     required: false
+#     notes: >
+#       The page desired from the set
+#   - count:
+#     required: false
+#     notes: >
+#       The number of results to return
+#   - filter:
+#     required: false
+#     notes: >
+#       The filter for a specific user to find for example: `filter=Testy`
+# example_request: >
+#   /some/path?filter=Testy&page=1&count=3
+# example_response:
+#   page: 1
+#   total_pages: 1
+#   count: 1
+#   users:
+#     - id: 1
+#       name: Testy McTesterson
+#       email: test@email.com
+# --- end

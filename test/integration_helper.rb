@@ -4,7 +4,7 @@ class Minitest::Test
   end
 
   def generated_docs
-    File.read generated_docs_path
+    @docs ||= File.read generated_docs_path
   end
 
   def assert_has_title_block_header(title)

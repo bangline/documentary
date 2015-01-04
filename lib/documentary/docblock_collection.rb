@@ -16,6 +16,10 @@ module Documentary
       fetch_subset :resource
     end
 
+    def endpoints
+      fetch_subset :endpoint
+    end
+
     private
 
       attr_reader :collection
