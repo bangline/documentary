@@ -147,4 +147,5 @@ There is a common practice on create and update (`POST` and `PUT`/`PATCH`) to re
 #       The email of the user
 # example_request: >
 #   /users?name=Testy%20McTesterson&email=test%40email.com
+# --- end
 ```
