@@ -65,3 +65,86 @@ Resource blocks let you describe the domain of your API. They are formed as foll
 ```
 
 Attributes are formed using the attribute name as the key and specifing if they are required (validation present) and the type to be passed.
+
+### Endpoints
+
+Endpoint blocks specify the public endpoints of your API. They are formed as follows:
+
+```
+# --- documentary
+# type: endpoint
+# title: List users
+# notes: >
+#  This enpoint will list all the users.
+# authenticated: true
+# verb: GET
+# endpoint: '/users'
+# example_response:
+#   page: 1
+#   total_pages: 1
+#   count: 1
+#   users:
+#     - id: 1
+#       name: Testy McTesterson
+#       email: test@email.com
+# --- end
+```
+
+Of course not all enpoints are this simple, for `GET` requests especially you may wish to pass in extra parameters for things like pagination of filtering. This is accomplished using the `params` key. Parameters take on the structure of the param name, whether it is required and any notes (example below). Better still you can provide an example request using the `example_request` key.
+
+```
+# --- documentary
+# type: endpoint
+# title: List users
+# authenticated: true
+# verb: GET
+# endpoint: '/users'
+# params:
+#   - page:
+#     required: false
+#     notes: >
+#       The page desired from the set
+#   - count:
+#     required: false
+#     notes: >
+#       The number of results to return
+#   - filter:
+#     required: false
+#     notes: >
+#       The filter for a specific user to find for example: `filter=Testy`
+# example_request: >
+#   /users?filter=Testy&page=1&count=3
+# example_response:
+#   page: 1
+#   total_pages: 1
+#   count: 1
+#   users:
+#     - id: 1
+#       name: Testy McTesterson
+#       email: test@email.com
+# --- end
+```
+
+There is a common practice on create and update (`POST` and `PUT`/`PATCH`) to return an empty response body and provide the `location` (the cannonical URL) in the response header. If no `example_response` is provided documentary will simply not generate documentation for it. We do suggest for clarity you mention this in the endpoint notes.
+
+```
+# --- documentary
+# type: endpoint
+# title: Create a user
+# notes: >
+#   The body of this response will be empty.
+# authenticated: true
+# verb: POST
+# endpoint: '/users'
+# params:
+#   - name:
+#     required: true
+#     notes: >
+#       The name of the user
+#   - email:
+#     required: true
+#     notes: >
+#       The email of the user
+# example_request: >
+#   /users?name=Testy%20McTesterson&email=test%40email.com
+```
