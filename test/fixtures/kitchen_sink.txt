@@ -26,7 +26,10 @@
 # --- documentary
 # type: endpoint
 # title: List endpoint
-# authenticated: true
+# notes: Some notes about the endpoint
+# information:
+#   authenticated: true
+#   response_formats: JSON
 # verb: GET
 # endpoint: '/some/path'
 # params:

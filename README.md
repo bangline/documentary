@@ -13,7 +13,7 @@ A simple tool that will allow you to generate API runnable documentation quickly
 * [X] Title Blocks
 * [X] Ordering
 * [X] Resource Blocks
-* [ ] Endpoint Blocks
+* [X] Endpoint Blocks
 * [ ] Generation config
 * [ ] Introduce view helpers
 * [ ] CLI design
@@ -76,7 +76,6 @@ Endpoint blocks specify the public endpoints of your API. They are formed as fol
 # title: List users
 # notes: >
 #  This enpoint will list all the users.
-# authenticated: true
 # verb: GET
 # endpoint: '/users'
 # example_response:
@@ -96,7 +95,6 @@ Of course not all enpoints are this simple, for `GET` requests especially you ma
 # --- documentary
 # type: endpoint
 # title: List users
-# authenticated: true
 # verb: GET
 # endpoint: '/users'
 # params:
@@ -133,7 +131,9 @@ There is a common practice on create and update (`POST` and `PUT`/`PATCH`) to re
 # title: Create a user
 # notes: >
 #   The body of this response will be empty.
-# authenticated: true
+# information:
+#   authenticated: true
+#   response_formats: JSON, XML
 # verb: POST
 # endpoint: '/users'
 # params:

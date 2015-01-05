@@ -9,6 +9,8 @@ module Documentary
 
   class Generator
     require 'erb'
+    require 'json'
+    require 'active_support/inflector'
 
     def self.build(file_tree)
       docblocks = DocblockCollection.new

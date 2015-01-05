@@ -42,4 +42,27 @@ class Documentary::IntegrationTest < MiniTest::Test
   test 'named enpoints are correctly generated' do
     assert_includes generated_docs, '### List endpoint'
   end
+
+  test 'enpoint url is generated' do
+    assert_includes generated_docs, "```\nGET /some/path\n```"
+  end
+
+  test 'endpoint information is correctly generated' do
+    assert_includes generated_docs, '* **Authenticated**: true'
+    assert_includes generated_docs, '* **Response Formats**: JSON'
+  end
+
+  test 'enpoint params are correctly generated' do
+    assert_includes generated_docs, 'page | false | The page desired from the set'
+    assert_includes generated_docs, 'count | false | The number of results to return'
+    assert_includes generated_docs, 'filter | false | The filter for a specific user to find for example: `filter=Testy`'
+  end
+
+  test 'enpoint example request is generated' do
+    assert_includes generated_docs, "```\nGET /some/path?filter=Testy&page=1&count=3\n```"
+  end
+
+  test 'enpoint example response is generated' do
+    assert_includes generated_docs, "#### Example Response\n\n```\n"
+  end
 end

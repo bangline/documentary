@@ -24,4 +24,39 @@ Name          | Type          | Required
 
 <% docblocks.endpoints.each do |endpoint| %>
 ### <%= endpoint.title %>
+
+<% if endpoint.notes %><%= endpoint.notes %><% end %>
+
+#### Enpoint URL
+
+```
+<%= endpoint.verb %> <%= endpoint.endpoint %>
+```
+<% if endpoint.information %>
+#### Endpoint Information
+
+<% endpoint.information.each do |key, value| %>* **<%= key.titleize %>**: <%= value %>
+<% end %>
+<% end %>
+
+<% if endpoint.params %>
+#### Parameters
+
+Name     | Required | Description
+-------- | -------- | -----------
+<% endpoint.params.each do |param| %><%= param.keys.first %> | <%= param['required'] %> | <%= param['notes'].strip %>
+<% end %>
+<% end %>
+
+#### Example Request
+
+```
+<%= endpoint.verb %> <%= endpoint.example_request.strip %>
+```
+
+#### Example Response
+
+```
+<%= JSON.pretty_generate(endpoint.example_response) %>
+```
 <% end %>
