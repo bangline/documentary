@@ -3,12 +3,22 @@ require 'integration_helper'
 
 class Documentary::IntegrationTest < MiniTest::Test
 
+  def config
+    {
+      project: 'Test Project'
+    }
+  end
+
   setup do
-    Documentary::Generator.build([fetch_fixture('kitchen_sink.txt')])
+    Documentary::Generator.new([fetch_fixture('kitchen_sink.txt')], config).generate
   end
 
   teardown do
     File.unlink generated_docs_path
+  end
+
+  test 'the document title is generated correctly' do
+    assert_includes generated_docs, "# #{config[:project]}"
   end
 
   test 'the title blocks are correctly generated' do

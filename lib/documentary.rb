@@ -12,8 +12,13 @@ module Documentary
     require 'json'
     require 'active_support/inflector'
 
-    def self.build(file_tree)
-      docblocks = DocblockCollection.new
+    def initialize(file_tree, config={})
+      @docblocks = DocblockCollection.new
+      @file_tree = file_tree
+      @config = config
+    end
+
+    def generate
       file_tree.each do |path|
         parsed_file = Parser.new(path)
         docblocks.concat parsed_file.docblocks
@@ -24,5 +29,14 @@ module Documentary
         end
       end
     end
+
+    private
+
+      attr_reader :file_tree, :config
+      attr_accessor :docblocks
+
+      def project_name
+        config[:project]
+      end
   end
 end
