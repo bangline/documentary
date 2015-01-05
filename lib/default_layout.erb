@@ -1,52 +1,59 @@
 # THE TOP TITLE
 
-<% docblocks.title_blocks.each do |title_block| %>
+<% docblocks.title_blocks.each do |title_block| -%>
 ## <%= title_block.title %>
 
 <%= title_block.content %>
-<% end %>
+<% end -%>
 
 ## Resources
 
-<% docblocks.resources.each do |resource| %>
+<% docblocks.resources.each do |resource| -%>
 ### <%= resource.title %>
 
 <%= resource.description %>
 
 #### Attributes
+
 Name          | Type          | Required
 ------------- | ------------- | -----------------
-<% resource.attributes.each do |attribute| %><%= attribute.keys.first %> | <%= attribute['type'] %> | <%= attribute['required'] %>
-<% end %>
-<% end %>
+<% resource.attributes.each do |attribute| -%>
+<%= attribute.keys.first %> | <%= attribute['type'] %> | <%= attribute['required'] %>
+<% end -%>
+<% end -%>
 
 ## Endpoints
 
-<% docblocks.endpoints.each do |endpoint| %>
+<% docblocks.endpoints.each do |endpoint| -%>
 ### <%= endpoint.title %>
 
-<% if endpoint.notes %><%= endpoint.notes %><% end %>
+<% if endpoint.notes -%>
+<%= endpoint.notes %>
+<% end -%>
 
 #### Enpoint URL
 
 ```
 <%= endpoint.verb %> <%= endpoint.endpoint %>
 ```
-<% if endpoint.information %>
+
+<% if endpoint.information -%>
 #### Endpoint Information
 
-<% endpoint.information.each do |key, value| %>* **<%= key.titleize %>**: <%= value %>
-<% end %>
-<% end %>
+<% endpoint.information.each do |key, value| -%>
+* **<%= key.titleize %>**: <%= value %>
+<% end -%>
+<% end -%>
 
-<% if endpoint.params %>
+<% if endpoint.params -%>
 #### Parameters
 
 Name     | Required | Description
 -------- | -------- | -----------
-<% endpoint.params.each do |param| %><%= param.keys.first %> | <%= param['required'] %> | <%= param['notes'].strip %>
-<% end %>
-<% end %>
+<% endpoint.params.each do |param| -%>
+<%= param.keys.first %> | <%= param['required'] %> | <%= param['notes'].strip %>
+<% end -%>
+<% end -%>
 
 #### Example Request
 
