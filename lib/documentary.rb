@@ -4,6 +4,7 @@ module Documentary
   require 'documentary/docblock'
   require 'documentary/docblock_collection'
   require 'documentary/parser'
+  require 'documentary/view/helpers'
 
   class InvalidDocblock < StandardError; end
 
@@ -11,6 +12,8 @@ module Documentary
     require 'erb'
     require 'json'
     require 'active_support/inflector'
+
+    include View
 
     def initialize(file_tree, config={})
       @docblocks = DocblockCollection.new
@@ -23,7 +26,7 @@ module Documentary
         parsed_file = Parser.new(path)
         docblocks.concat parsed_file.docblocks
         template = File.expand_path('../default_layout.erb', __FILE__)
-        erb = ERB.new(File.new(template).read, nil, '-')
+        erb = ERB.new(File.new(template).read, nil, '<>')
         File.open('api.md', 'w+') do |file|
           file.write erb.result(binding)
         end

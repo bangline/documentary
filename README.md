@@ -15,7 +15,7 @@ A simple tool that will allow you to generate API runnable documentation quickly
 * [X] Resource Blocks
 * [X] Endpoint Blocks
 * [X] Introduce Generation config
-* [ ] Introduce view helpers
+* [X] Introduce view helpers
 * [ ] Start being more strict on specs?
 * [ ] CLI design
 * [ ] TOC for documentation
