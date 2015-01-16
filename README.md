@@ -16,9 +16,9 @@ A simple tool that will allow you to generate API runnable documentation quickly
 * [X] Endpoint Blocks
 * [X] Introduce Generation config
 * [X] Introduce view helpers
-* [ ] Start being more strict on specs?
 * [ ] CLI design
 * [ ] TOC for documentation
+* [ ] Start being more strict on specification for MD generation?
 * [ ] Create testing suite
 
 ## Specification
