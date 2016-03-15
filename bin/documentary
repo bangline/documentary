@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'documentary/cli'
+
+Documentary::Cli.run ARGV
