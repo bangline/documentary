@@ -1,5 +1,6 @@
 module Documentary
   class DocblockCollection
+    require 'forwardable'
     extend Forwardable
 
     def_delegators :@collection, :<<, :concat

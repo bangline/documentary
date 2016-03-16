@@ -1,6 +1,6 @@
 module Documentary
-  require 'pry'
   require 'ostruct'
+  require 'documentary/version'
   require 'documentary/docblock'
   require 'documentary/docblock_collection'
   require 'documentary/parser'

@@ -1,12 +1,16 @@
+basedir = File.expand_path(File.dirname(__FILE__))
+require "#{basedir}/lib/documentary/version"
+
 Gem::Specification.new do |s|
   s.name          = 'documentary'
-  s.version       = '0.0.1'
+  s.version       = Documentary::VERSION
   s.summary       = 'Documentary'
   s.description   = 'Simple, useable, runnable API documentation'
   s.authors       = ['Dave Kennedy']
   s.email         = 'david@bangline.co.uk'
   s.files         = `git ls-files`.split("\n")
   s.require_path  = 'lib'
+  s.executables   = ['documentary']
   s.homepage      = 'http://rubygems.org/gems/documentary'
   s.license       = 'MIT'
 
