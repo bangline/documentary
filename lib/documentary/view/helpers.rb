@@ -42,7 +42,6 @@ module Documentary
         io.puts start_code_block
         io.puts "#{endpoint.verb} #{endpoint.endpoint}"
         io.puts end_code_block
-        io.puts new_line
         if endpoint.information
           io.puts '#### Endpoint Information'
           io.puts new_line
@@ -67,6 +66,8 @@ module Documentary
           io.puts start_code_block
           io.puts "#{endpoint.verb} #{endpoint.example_request.strip}"
           io.puts end_code_block
+        end
+        if endpoint.example_response
           io.puts new_line
           io.puts '#### Example Response'
           io.puts new_line

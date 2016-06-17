@@ -27,7 +27,7 @@ module Documentary
         docblocks.concat parsed_file.docblocks
         template = File.expand_path('../default_layout.erb', __FILE__)
         erb = ERB.new(File.new(template).read, nil, '<>')
-        File.open('api.md', 'w+') do |file|
+        File.open(output_file, 'w+') do |file|
           file.write erb.result(binding)
         end
       end
@@ -40,6 +40,10 @@ module Documentary
 
       def project_name
         config[:project]
+      end
+
+      def output_file
+        config[:op]
       end
   end
 end
