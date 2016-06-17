@@ -5,7 +5,8 @@ class Documentary::IntegrationTest < MiniTest::Test
 
   def config
     {
-      project: 'Test Project'
+      project: 'Test Project',
+      op: 'api.md'
     }
   end
 
@@ -74,5 +75,6 @@ class Documentary::IntegrationTest < MiniTest::Test
 
   test 'enpoint example response is generated' do
     assert_includes generated_docs, "#### Example Response\n\n```\n"
+    assert_includes generated_docs, "\"page\": 1,\n"
   end
 end
