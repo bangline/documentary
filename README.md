@@ -6,20 +6,19 @@ A simple tool that will allow you to generate API runnable documentation quickly
 >
 > -- <cite>Kathy Sierra</cite>
 
-## Todos
+[Example of the documentation generated](https://gist.github.com/bangline/edeb0201b13b2721be3764f5fa0c76d5)
 
-* [X] Build the parser
-* [X] Integration Test
-* [X] Title Blocks
-* [X] Ordering
-* [X] Resource Blocks
-* [X] Endpoint Blocks
-* [X] Introduce Generation config
-* [X] Introduce view helpers
-* [ ] CLI design
-* [ ] TOC for documentation
-* [ ] Start being more strict on specification for MD generation?
-* [ ] Create testing suite
+## Installation
+
+```
+gem install documentary
+```
+
+Or in your Gemfile:
+
+```
+gem 'documentary'
+```
 
 ## Specification
 

@@ -5,7 +5,8 @@ Gem::Specification.new do |s|
   s.name          = 'documentary'
   s.version       = Documentary::VERSION
   s.summary       = 'Documentary'
-  s.description   = 'Simple, useable, runnable API documentation'
+  s.homepage      = 'https://github.com/bangline/documentary'
+  s.description   = 'Simple, useable, maintainable API documentation'
   s.authors       = ['Dave Kennedy']
   s.email         = 'david@bangline.co.uk'
   s.files         = `git ls-files`.split("\n")
