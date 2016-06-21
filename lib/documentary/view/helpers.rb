@@ -5,12 +5,14 @@ module Documentary
     def toc
       io = StringIO.new
       io.puts "### [Resources](#resources)"
+      io.puts new_line
       docblocks.resources.each do |resource|
-        io.puts "* [#{resource.title}](##{resource.title.downcase.gsub(' ', '-') })"
+        io.puts "* #{link_to(resource.title)}"
       end
+      io.puts new_line
       io.puts "### [Endpoints](#endpoints)"
       docblocks.endpoints.each do |endpoint|
-        io.puts "* [#{endpoint.title}](##{endpoint.title.downcase.gsub(' ', '-') })"
+        io.puts "* #{link_to(endpoint.title)}"
       end
       io.string
     end
@@ -28,10 +30,10 @@ module Documentary
 
     def resource_blocks
       io = StringIO.new
-      io.puts '## Resources'
+      io.puts "## #{link_to('Resources')}"
       io.puts new_line
       docblocks.resources.each do |resource|
-        io.puts "### #{resource.title}"
+        io.puts "### #{link_to(resource.title)}"
         io.puts new_line
         io.puts resource.description
         io.puts new_line
@@ -43,10 +45,10 @@ module Documentary
 
     def endpoint_blocks
       io = StringIO.new
-      io.puts '## Endpoints'
+      io.puts "## #{link_to('Endpoints')}"
       io.puts new_line
       docblocks.endpoints.each do |endpoint|
-        io.puts "### #{endpoint.title}"
+        io.puts "### #{link_to(endpoint.title)}"
         io.puts new_line
         io.puts endpoint.notes if endpoint.notes
         io.puts new_line
@@ -97,6 +99,10 @@ module Documentary
     end
 
     private
+
+      def link_to(title)
+        "[#{title}](##{title.downcase.gsub(' ', '-')})"
+      end
 
       def resource_attributes(resource, io)
         io.puts '#### Attributes'

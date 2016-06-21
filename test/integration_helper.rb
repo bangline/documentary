@@ -16,11 +16,11 @@ class Minitest::Test
   end
 
   def assert_has_resource_title
-    assert_includes generated_docs, "## Resources"
+    assert_includes generated_docs, "## [Resources](#resources)"
   end
 
   def assert_has_enpoints_title
-    assert_includes generated_docs, "## Endpoints"
+    assert_includes generated_docs, "## [Endpoints](#endpoints)"
   end
 
   def assert_has_third_level_heading(heading)
@@ -28,7 +28,7 @@ class Minitest::Test
   end
 
   def assert_content_for_resource(resource, content)
-    assert_match /### #{resource}\n\n#{content}/, generated_docs
+    assert_match /### \[#{resource}\]\(##{resource.downcase.gsub(' ', '-')}\)\n\n#{content}/, generated_docs
   end
 
   def assert_table_entry_for_resource(resource, row_content)

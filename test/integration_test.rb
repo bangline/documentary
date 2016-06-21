@@ -35,7 +35,7 @@ class Documentary::IntegrationTest < MiniTest::Test
   end
 
   test 'named resources are correctly generated' do
-    assert_has_third_level_heading 'A Resource'
+    assert_includes generated_docs, '### [A Resource](#a-resource)'
   end
 
   test 'named resources descriptions are correctly generated' do
@@ -51,7 +51,7 @@ class Documentary::IntegrationTest < MiniTest::Test
   end
 
   test 'named enpoints are correctly generated' do
-    assert_includes generated_docs, '### List endpoint'
+    assert_includes generated_docs, '### [List endpoint](#list-endpoint)'
   end
 
   test 'enpoint url is generated' do
