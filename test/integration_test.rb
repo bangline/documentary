@@ -77,4 +77,12 @@ class Documentary::IntegrationTest < MiniTest::Test
     assert_includes generated_docs, "#### Example Response\n\n```\n"
     assert_includes generated_docs, "\"page\": 1,\n"
   end
+
+  test 'TOC is generated' do
+    assert_includes generated_docs, "## Contents\n"
+    assert_includes generated_docs, "### [Resources](#resources)\n"
+    assert_includes generated_docs, "* [A Resource](#a-resource)\n"
+    assert_includes generated_docs, "### [Endpoints](#endpoints)\n"
+    assert_includes generated_docs, "* [List endpoint](#list-endpoint)\n"
+  end
 end

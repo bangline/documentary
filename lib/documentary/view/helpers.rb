@@ -2,6 +2,19 @@ module Documentary
   module View
     require 'stringio'
 
+    def toc
+      io = StringIO.new
+      io.puts "### [Resources](#resources)"
+      docblocks.resources.each do |resource|
+        io.puts "* [#{resource.title}](##{resource.title.downcase.gsub(' ', '-') })"
+      end
+      io.puts "### [Endpoints](#endpoints)"
+      docblocks.endpoints.each do |endpoint|
+        io.puts "* [#{endpoint.title}](##{endpoint.title.downcase.gsub(' ', '-') })"
+      end
+      io.string
+    end
+
     def title_blocks
       io = StringIO.new
       docblocks.title_blocks.each do |title_block|
