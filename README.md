@@ -20,6 +20,18 @@ Or in your Gemfile:
 gem 'documentary'
 ```
 
+## Usage
+
+Documentary ships with a command line runner
+
+```
+Usage: documentary [options]
+    -v, --version                    Print version number
+    -d, --directory glob             Set directory to search for docblocks
+    -p, --project project            Set project name
+    -o, --output output              Set the output file
+```
+
 ## Specification
 
 Documentary works using good old fashioned docblocks. I believe documentation for APIs should live with the code they document. Creating a documentary docblock is as simple as

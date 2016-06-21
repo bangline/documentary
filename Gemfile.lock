@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    documentary (0.1.1)
+    documentary (0.1.2)
       activesupport
 
 GEM
