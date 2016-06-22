@@ -69,8 +69,13 @@ class Documentary::IntegrationTest < MiniTest::Test
     assert_includes generated_docs, 'filter | false | The filter for a specific user to find for example: `filter=Testy`'
   end
 
-  test 'enpoint example request is generated' do
+  test 'enpoint example request with query params is generated' do
     assert_includes generated_docs, "```\nGET /some/path?filter=Testy&page=1&count=3\n```"
+  end
+
+  test 'enpoint example request with a JSON body is generated' do
+    assert_includes generated_docs, "{\n  \"some\": {\n    \"body\": \"attributes\"\n  }\n}\n"
+    assert_includes generated_docs, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<hash>\n  <some>\n    <body>attributes</body>\n  </some>\n</hash>\n"
   end
 
   test 'enpoint example response is generated' do

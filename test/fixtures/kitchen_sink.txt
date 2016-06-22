@@ -48,7 +48,19 @@
 #     notes: >
 #       The filter for a specific user to find for example: `filter=Testy`
 # example_request: >
-#   /some/path?filter=Testy&page=1&count=3
+#   query:
+#     - filter: Testy
+#     - page: 1
+#     - count: 3
+#   body:
+#     - content_type: json
+#       payload:
+#         some:
+#           body: attributes
+#     - content_type: xml
+#       payload:
+#         some:
+#           body: attributes
 # example_response:
 #   page: 1
 #   total_pages: 1

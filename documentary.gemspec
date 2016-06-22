@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
 
   s.add_dependency 'activesupport'
+  s.add_dependency 'builder'
   s.add_development_dependency 'minitest', '~> 5.4.3'
   s.add_development_dependency 'rake', '~> 10.3.2'
 end

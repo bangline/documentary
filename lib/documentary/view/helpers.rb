@@ -78,9 +78,20 @@ module Documentary
           io.puts new_line
           io.puts '#### Example Request'
           io.puts new_line
-          io.puts start_code_block
-          io.puts "#{endpoint.verb} #{endpoint.example_request.strip}"
-          io.puts end_code_block
+          example_request = YAML.load(endpoint.example_request)
+          if example_request['query']
+            io.puts start_code_block
+            io.puts "#{endpoint.verb} #{endpoint.endpoint}" << '?' << query_params(example_request['query'])
+            io.puts end_code_block
+          end
+          if example_request['body']
+            io.puts start_code_block
+            example_request['body'].each do |b|
+              io.puts request_payload(b)
+              io.puts new_line
+            end
+            io.puts start_code_block
+          end
         end
         if endpoint.example_response
           io.puts new_line
@@ -102,6 +113,19 @@ module Documentary
 
       def link_to(title)
         "[#{title}](##{title.downcase.gsub(' ', '-')})"
+      end
+
+      def query_params(params)
+        params.map {|p| "#{p.keys.first}=#{p[p.keys.first]}"}.join('&')
+      end
+
+      def request_payload(payload)
+        case payload['content_type']
+        when 'json'
+          JSON.pretty_generate(payload['payload'])
+        when 'xml'
+          payload['payload'].to_xml
+        end
       end
 
       def resource_attributes(resource, io)
