@@ -1,6 +1,6 @@
 # Documentary
 
-![Build Status](https://circleci.com/gh/bangline/documentary.png?circle-token=:circle-token)
+![Build Status](https://circleci.com/gh/bangline/documentary.svg?style=shield&circle-token=:circle-token)
 
 A simple tool that will allow you to generate API runnable documentation quickly.
 
