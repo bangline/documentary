@@ -123,7 +123,19 @@ Of course not all enpoints are this simple, for `GET` requests especially you ma
 #     notes: >
 #       The filter for a specific user to find for example: `filter=Testy`
 # example_request: >
-#   /users?filter=Testy&page=1&count=3
+#   query:
+#     - filter: Testy
+#     - page: 1
+#     - count: 3
+#   body:
+#     - content_type: json
+#       payload:
+#         some:
+#           body: attributes
+#     - content_type: xml
+#       payload:
+#         some:
+#           body: attributes
 # example_response:
 #   page: 1
 #   total_pages: 1
@@ -158,6 +170,8 @@ There is a common practice on create and update (`POST` and `PUT`/`PATCH`) to re
 #     notes: >
 #       The email of the user
 # example_request: >
-#   /users?name=Testy%20McTesterson&email=test%40email.com
+#   query:
+#     - name: Testy McTesterson
+#     - email: test@email.com
 # --- end
 ```

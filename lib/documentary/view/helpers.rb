@@ -116,7 +116,8 @@ module Documentary
       end
 
       def query_params(params)
-        params.map {|p| "#{p.keys.first}=#{p[p.keys.first]}"}.join('&')
+        p = params.map {|p| "#{p.keys.first}=#{p[p.keys.first]}"}.join('&')
+        URI.escape(p)
       end
 
       def request_payload(payload)
